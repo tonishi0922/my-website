@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>introduce</title>
+  </head>
+  <body>
+    <avatar-card
+      name="Tomoki Onishi"
+      title="Frontend Engineer"
+      src="/assets/avatar.svg"
+    >
+    </avatar-card>
+    <ui-card>
+      <div>test</div>
+    </ui-card>
+    <div>
+      test
+      <ui-divider variant="strong"></ui-divider>
+    </div>
+    <script type="module">
+      import "/src/app/register.ts";
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const card = document.querySelector("avatar-card");
+        card.links = [
+          { label: "GitHub", href: "https://github.com/you" },
+          { label: "X", href: "https://x.com/you" },
+          { label: "Blog", href: "https://example.com" },
+        ];
+      });
+    </script>
+  </body>
+</html>

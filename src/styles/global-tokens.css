@@ -1,0 +1,49 @@
+:root {
+  --bg-light: #e6e9f2;
+  --panel-light: #e6e9f2;
+  --heading-light: #121935;
+  --paragraph-light: #121935;
+  --text-light: #121935;
+  --brand-light: #6aa2ff;
+  --line-light: #121935;
+
+  --bg-dark: #0b1020;
+  --panel-dark: #121935;
+  --heading-dark: #e6e9f2;
+  --paragraph-dark: #e6e9f2;
+  --text-dark: #e6e9f2;
+  --brand-dark: #6aa2ff;
+  --line-dark: #e6e9f2;
+
+  --radius-0: 0px;
+  --radius-2: 8px;
+  --radius-4: 16px;
+  --radius-inf: 9999px
+
+  --space-0: 0px;
+  --space-2: 8px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  --m-0: 0px;
+  --m-2: 8px;
+  --m-4: 16px;
+  --m-6: 24px;
+  --m-8: 32px;
+
+  --p-0: 0px;
+  --p-2: 8px;
+  --p-4: 16px;
+  --p-6: 24px;
+  --p-8: 32px;
+
+  --fs-1: 14px;
+  --fs-2: 16px;
+  --fs-3: 20px;
+  --fs-4: 24px;
+  --fs-6: 32px;
+
+  --thickness-1: 1px;
+  --thickness-2: 2px;
+}
