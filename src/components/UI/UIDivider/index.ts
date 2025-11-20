@@ -1,6 +1,14 @@
 import css from "./ui-divider.css?raw";
 import { BaseElement } from "../../internal/BaseElement";
 
+/**
+ * @element ui-divider
+ *
+ * @attr {"default" | "strong"} variant ボーダーの太さ
+ *
+ * @slot - カード内の要素
+ */
+
 type Attrs = "variant" | "orientation" | "inset" | "label";
 
 export class UIDivider extends BaseElement<Attrs> {

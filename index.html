@@ -7,19 +7,28 @@
     <title>introduce</title>
   </head>
   <body>
-    <avatar-card
-      name="Tomoki Onishi"
-      title="Frontend Engineer"
-      src="/assets/avatar.svg"
-    >
-    </avatar-card>
-    <ui-card>
-      <div>test</div>
-    </ui-card>
-    <div>
-      test
-      <ui-divider variant="strong"></ui-divider>
-    </div>
+    <ui-layout>
+      <ui-container full-height>
+        <ui-stack justify="center">
+          <avatar-card
+            orientation="horizontal"
+            name="Tomoki Onishi"
+            description="Frontend Engineer"
+            imageSrc="/assets/avatar.svg"
+          >
+          </avatar-card>
+        </ui-stack>
+        <ui-stack>
+          <ui-card>
+            <div>test</div>
+          </ui-card>
+          <div>
+            test
+            <ui-divider variant="strong"></ui-divider>
+          </div>
+        </ui-stack>
+      </ui-container>
+    </ui-layout>
     <script type="module">
       import "/src/app/register.ts";
 

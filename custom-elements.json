@@ -1,0 +1,1135 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/app/main.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/common/AvatarCard"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/UI/UICard"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/UI/UIDivider"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/UI/UIStack"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/UI/UILayout"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/UI/UIContainer"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/app/register.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "name",
+          "declaration": {
+            "name": "ctor",
+            "module": "src/app/register.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/assets/index-BBHhzF6Y.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "n"
+        },
+        {
+          "kind": "variable",
+          "name": "o"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "o",
+          "declaration": {
+            "name": "n",
+            "module": "dist/assets/index-BBHhzF6Y.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/UI/UICard/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "UICard",
+          "attributes": [
+            {
+              "name": "orientation"
+            }
+          ],
+          "superclass": {
+            "name": "BaseElement",
+            "module": "/src/components/internal/BaseElement"
+          },
+          "members": [
+            {
+              "kind": "field",
+              "name": "root",
+              "type": {
+                "text": "ShadowRoot"
+              },
+              "privacy": "protected",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "sheet",
+              "type": {
+                "text": "CSSStyleSheet | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "styleEl",
+              "type": {
+                "text": "HTMLStyleElement | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "useCss",
+              "privacy": "protected",
+              "parameters": [
+                {
+                  "name": "cssText",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "CSS を ShadowDOMに適用する",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "update",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "継承先で DOM を反映する",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "attr",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string | null"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "K"
+                  }
+                }
+              ],
+              "description": "型安全のためのヘルパー関数",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "replaceContent",
+              "privacy": "protected",
+              "parameters": [
+                {
+                  "name": "html",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "ShadowDOM の中身を Style 以外削除する Util 関数",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "UICard",
+          "declaration": {
+            "name": "UICard",
+            "module": "src/components/UI/UICard/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/UI/UIDivider/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "UIDivider",
+          "members": [
+            {
+              "kind": "method",
+              "name": "update",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "継承先で DOM を反映する",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "toggleClass",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "on",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "root",
+              "type": {
+                "text": "ShadowRoot"
+              },
+              "privacy": "protected",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "sheet",
+              "type": {
+                "text": "CSSStyleSheet | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "styleEl",
+              "type": {
+                "text": "HTMLStyleElement | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "useCss",
+              "privacy": "protected",
+              "parameters": [
+                {
+                  "name": "cssText",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "CSS を ShadowDOMに適用する",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "attr",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string | null"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "K"
+                  }
+                }
+              ],
+              "description": "型安全のためのヘルパー関数",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "replaceContent",
+              "privacy": "protected",
+              "parameters": [
+                {
+                  "name": "html",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "ShadowDOM の中身を Style 以外削除する Util 関数",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant"
+            },
+            {
+              "name": "orientation"
+            },
+            {
+              "name": "inset"
+            },
+            {
+              "name": "label"
+            }
+          ],
+          "superclass": {
+            "name": "BaseElement",
+            "module": "/src/components/internal/BaseElement"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "UIDivider",
+          "declaration": {
+            "name": "UIDivider",
+            "module": "src/components/UI/UIDivider/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/UI/UILayout/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "UILayout",
+          "slots": [
+            {
+              "description": "レイアウト内の要素",
+              "name": ""
+            }
+          ],
+          "superclass": {
+            "name": "BaseElement",
+            "module": "/src/components/internal/BaseElement"
+          },
+          "tagName": "ui-layout",
+          "customElement": true,
+          "members": [
+            {
+              "kind": "field",
+              "name": "root",
+              "type": {
+                "text": "ShadowRoot"
+              },
+              "privacy": "protected",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "sheet",
+              "type": {
+                "text": "CSSStyleSheet | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "styleEl",
+              "type": {
+                "text": "HTMLStyleElement | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "useCss",
+              "privacy": "protected",
+              "parameters": [
+                {
+                  "name": "cssText",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "CSS を ShadowDOMに適用する",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "update",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "継承先で DOM を反映する",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "attr",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string | null"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "K"
+                  }
+                }
+              ],
+              "description": "型安全のためのヘルパー関数",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "replaceContent",
+              "privacy": "protected",
+              "parameters": [
+                {
+                  "name": "html",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "ShadowDOM の中身を Style 以外削除する Util 関数",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "UILayout",
+          "declaration": {
+            "name": "UILayout",
+            "module": "src/components/UI/UILayout/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/UI/UIContainer/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "UIContainer",
+          "members": [
+            {
+              "kind": "method",
+              "name": "update",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "継承先で DOM を反映する",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "root",
+              "type": {
+                "text": "ShadowRoot"
+              },
+              "privacy": "protected",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "sheet",
+              "type": {
+                "text": "CSSStyleSheet | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "styleEl",
+              "type": {
+                "text": "HTMLStyleElement | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "useCss",
+              "privacy": "protected",
+              "parameters": [
+                {
+                  "name": "cssText",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "CSS を ShadowDOMに適用する",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "attr",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string | null"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "K"
+                  }
+                }
+              ],
+              "description": "型安全のためのヘルパー関数",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "replaceContent",
+              "privacy": "protected",
+              "parameters": [
+                {
+                  "name": "html",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "ShadowDOM の中身を Style 以外削除する Util 関数",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "full-height"
+            }
+          ],
+          "superclass": {
+            "name": "BaseElement",
+            "module": "/src/components/internal/BaseElement"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "UIContainer",
+          "declaration": {
+            "name": "UIContainer",
+            "module": "src/components/UI/UIContainer/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/UI/UIStack/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "UIStack",
+          "members": [
+            {
+              "kind": "method",
+              "name": "update",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "継承先で DOM を反映する",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "root",
+              "type": {
+                "text": "ShadowRoot"
+              },
+              "privacy": "protected",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "sheet",
+              "type": {
+                "text": "CSSStyleSheet | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "styleEl",
+              "type": {
+                "text": "HTMLStyleElement | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "useCss",
+              "privacy": "protected",
+              "parameters": [
+                {
+                  "name": "cssText",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "CSS を ShadowDOMに適用する",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "attr",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string | null"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "K"
+                  }
+                }
+              ],
+              "description": "型安全のためのヘルパー関数",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "replaceContent",
+              "privacy": "protected",
+              "parameters": [
+                {
+                  "name": "html",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "ShadowDOM の中身を Style 以外削除する Util 関数",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "orientation"
+            },
+            {
+              "name": "gap"
+            },
+            {
+              "name": "align"
+            },
+            {
+              "name": "justify"
+            }
+          ],
+          "superclass": {
+            "name": "BaseElement",
+            "module": "/src/components/internal/BaseElement"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "UIStack",
+          "declaration": {
+            "name": "UIStack",
+            "module": "src/components/UI/UIStack/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/common/AvatarCard/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "AvatarCard",
+          "members": [
+            {
+              "kind": "method",
+              "name": "update",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "継承先で DOM を反映する",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "links",
+              "type": {
+                "text": "{ label: string; href: string }[]"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "root",
+              "type": {
+                "text": "ShadowRoot"
+              },
+              "privacy": "protected",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "sheet",
+              "type": {
+                "text": "CSSStyleSheet | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "styleEl",
+              "type": {
+                "text": "HTMLStyleElement | undefined"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "useCss",
+              "privacy": "protected",
+              "parameters": [
+                {
+                  "name": "cssText",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "CSS を ShadowDOMに適用する",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "attr",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string | null"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "K"
+                  }
+                }
+              ],
+              "description": "型安全のためのヘルパー関数",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "replaceContent",
+              "privacy": "protected",
+              "parameters": [
+                {
+                  "name": "html",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "ShadowDOM の中身を Style 以外削除する Util 関数",
+              "inheritedFrom": {
+                "name": "BaseElement",
+                "module": "src/components/internal/BaseElement/index.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "description"
+            },
+            {
+              "name": "imageSrc"
+            },
+            {
+              "name": "orientation"
+            }
+          ],
+          "superclass": {
+            "name": "BaseElement",
+            "module": "/src/components/internal/BaseElement"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AvatarCard",
+          "declaration": {
+            "name": "AvatarCard",
+            "module": "src/components/common/AvatarCard/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/common/Section/index.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/internal/BaseElement/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "BaseElement",
+          "members": [
+            {
+              "kind": "field",
+              "name": "root",
+              "type": {
+                "text": "ShadowRoot"
+              },
+              "privacy": "protected",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "sheet",
+              "type": {
+                "text": "CSSStyleSheet | undefined"
+              },
+              "privacy": "protected"
+            },
+            {
+              "kind": "field",
+              "name": "styleEl",
+              "type": {
+                "text": "HTMLStyleElement | undefined"
+              },
+              "privacy": "protected"
+            },
+            {
+              "kind": "method",
+              "name": "useCss",
+              "privacy": "protected",
+              "parameters": [
+                {
+                  "name": "cssText",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "CSS を ShadowDOMに適用する"
+            },
+            {
+              "kind": "method",
+              "name": "update",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "継承先で DOM を反映する"
+            },
+            {
+              "kind": "method",
+              "name": "attr",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string | null"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "K"
+                  }
+                }
+              ],
+              "description": "型安全のためのヘルパー関数"
+            },
+            {
+              "kind": "method",
+              "name": "replaceContent",
+              "privacy": "protected",
+              "parameters": [
+                {
+                  "name": "html",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "ShadowDOM の中身を Style 以外削除する Util 関数"
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "BaseElement",
+          "declaration": {
+            "name": "BaseElement",
+            "module": "src/components/internal/BaseElement/index.ts"
+          }
+        }
+      ]
+    }
+  ]
+}

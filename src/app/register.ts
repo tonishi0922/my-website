@@ -5,6 +5,9 @@ import "../style.css";
 import { AvatarCard } from "../components/common/AvatarCard";
 import { UICard } from "../components/UI/UICard";
 import { UIDivider } from "../components/UI/UIDivider";
+import { UIStack } from "../components/UI/UIStack";
+import { UILayout } from "../components/UI/UILayout";
+import { UIContainer } from "../components/UI/UIContainer";
 
 const define = (name: string, ctor: CustomElementConstructor) => {
   customElements.get(name) || customElements.define(name, ctor);
@@ -13,3 +16,6 @@ const define = (name: string, ctor: CustomElementConstructor) => {
 define("avatar-card", AvatarCard);
 define("ui-card", UICard);
 define("ui-divider", UIDivider);
+define("ui-stack", UIStack);
+define("ui-layout", UILayout);
+define("ui-container", UIContainer);

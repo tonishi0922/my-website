@@ -1,5 +1,6 @@
 :root {
   --bg-light: #e6e9f2;
+  --bg-sub-light: #91939a;
   --panel-light: #e6e9f2;
   --heading-light: #121935;
   --paragraph-light: #121935;
@@ -8,6 +9,7 @@
   --line-light: #121935;
 
   --bg-dark: #0b1020;
+  --bg-sub-dark: #41475d;
   --panel-dark: #121935;
   --heading-dark: #e6e9f2;
   --paragraph-dark: #e6e9f2;

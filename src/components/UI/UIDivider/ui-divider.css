@@ -12,6 +12,9 @@
   border-radius: var(--radius-inf);
 }
 
+:host([variant="default"]) .divider {
+  height: var(--thickness-1);
+}
 :host([variant="strong"]) .divider {
   height: var(--thickness-2);
 }

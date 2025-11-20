@@ -1,21 +1,27 @@
 import css from "./ui-card.css?raw";
+import { BaseElement } from "../../internal/BaseElement";
 
-export class UICard extends HTMLElement {
-  #root: ShadowRoot;
-  #styleEl: HTMLStyleElement;
-  constructor() {
-    super();
-    this.#root = this.attachShadow({ mode: "open" });
-    this.#styleEl = document.createElement("style");
+/**
+ * @element ui-card
+ *
+ * @attr {"vertical" | "horizontal"} orientation カードの要素を縦並びにするか横並びにするか
+ *
+ * @slot - カード内の要素
+ */
 
-    const wrap = document.createElement("div");
-    wrap.className = "ui-card";
-    wrap.innerHTML = `<slot></slot>`;
-    this.#root.replaceChildren(this.#styleEl, wrap);
-    this.#loadCSS();
+type Attrs = "orientation";
+
+export class UICard extends BaseElement<Attrs> {
+  static override get observedAttributes() {
+    return ["orientation"];
   }
 
-  #loadCSS() {
-    this.#styleEl.textContent = css;
+  constructor() {
+    super({
+      css,
+      template: `
+        <div class="ui-card"><slot></slot></div>
+      `,
+    });
   }
 }

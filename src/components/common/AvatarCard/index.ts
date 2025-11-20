@@ -1,67 +1,77 @@
 import css from "./avatar-card.css?raw";
+import { BaseElement } from "../../internal/BaseElement";
+
+/**
+ * @element avatar-card
+ *
+ * @attr {string} name 表示される名前
+ *
+ * @attr {string} description 説明文
+ *
+ * @attr {string} imageSrc 画像ソース
+ *
+ * @attr {"vertical" | "horizontal"} orientation カードの要素を縦並びにするか横並びにするか
+ *
+ * @slot - カード内の要素
+ */
+
+type Attrs = "name" | "description" | "imageSrc" | "orientation";
 
 export type AvatarCardProps = {
   name: string;
-  title: string;
-  src: string;
+  description: string;
+  imageSrc: string;
   links: { label: string; href: string }[];
 };
 
-export class AvatarCard extends HTMLElement {
-  static get observedAttributes() {
-    return ["name", "title", "src"] as const;
+export class AvatarCard extends BaseElement<Attrs> {
+  static override get observedAttributes() {
+    return ["name", "description", "imageSrc", "orientation"];
   }
 
-  #root: ShadowRoot;
-  #styleEl: HTMLStyleElement;
-
   constructor() {
-    super();
-    this.#root = this.attachShadow({ mode: "open" });
-    this.#styleEl = document.createElement("style");
-    const wrap = document.createElement("article");
-
-    wrap.className = "avatar-card";
-    wrap.innerHTML = `
-      <img id="avatar" alt="">
-      <div>
-        <h1 id="name"></h1>
-        <p id="title"></p>
-        <div class="links" id="links"></div>
-      </div>
-      `;
-    this.#root.replaceChildren(this.#styleEl, wrap);
-    this.#updateFromAttrs();
-    this.#loadCSS();
+    super({
+      css,
+      template: `
+        <ui-card>
+          <img id="avatar" alt="">
+          <div>
+            <h1 id="name"></h1>
+            <p id="description"></p>
+            <div class="links" id="links"></div>
+          </div>
+        </ui-card>
+      `,
+    });
   }
 
   connectedCallback() {
-    this.#updateFromAttrs();
-  }
-
-  #loadCSS() {
-    this.#styleEl.textContent = css;
+    this.update();
   }
 
   attributeChangedCallback() {
-    this.#updateFromAttrs();
+    this.update();
   }
 
-  #updateFromAttrs() {
-    const name = this.getAttribute("name") ?? "";
-    const title = this.getAttribute("title") ?? "";
-    const src = this.getAttribute("src") ?? "";
+  protected override update() {
+    const name = this.attr("name") ?? "";
+    const description = this.attr("description") ?? "";
+    const imageSrc = this.attr("imageSrc") ?? "";
+    const orientation = this.attr("orientation") ?? "horizontal";
 
-    this.#root.querySelector<HTMLHeadingElement>("#name")!.textContent = name;
-    this.#root.querySelector<HTMLParagraphElement>("#title")!.textContent =
-      title;
-    const img = this.#root.querySelector<HTMLImageElement>("#avatar")!;
-    img.src = src;
+    this.root.querySelector<HTMLHeadingElement>("#name")!.textContent = name;
+    this.root.querySelector<HTMLParagraphElement>("#description")!.textContent =
+      description;
+    const img = this.root.querySelector<HTMLImageElement>("#avatar")!;
+    img.src = imageSrc;
     img.alt = name ? `${name} avatar` : "avatar";
+
+    const uiCard = this.root.querySelector("ui-card");
+    if (uiCard) uiCard.setAttribute("orientation", orientation);
   }
 
   set links(list: { label: string; href: string }[]) {
-    const box = this.#root.querySelector<HTMLDivElement>("#links")!;
+    const box = this.root.querySelector<HTMLDivElement>("#links")!;
     box.replaceChildren();
     (list ?? []).forEach(({ label, href }) => {
       const a = document.createElement("a");
@@ -75,7 +85,7 @@ export class AvatarCard extends HTMLElement {
 
   get links(): { label: string; href: string }[] {
     const anchors = Array.from(
-      this.#root.querySelectorAll<HTMLAnchorElement>("#links a")
+      this.root.querySelectorAll<HTMLAnchorElement>("#links a")
     );
     return anchors.map((a) => ({ label: a.textContent, href: a.href }));
   }
