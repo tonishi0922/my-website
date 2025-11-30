@@ -15,7 +15,7 @@ import { BaseElement } from "../../internal/BaseElement";
  * @slot - カード内の要素
  */
 
-type Attrs = "orientation" | "gap" | "align" | "justify";
+type Attrs = "orientation" | "gap" | "align" | "justify" | "padding" | "margin";
 
 export class UIStack extends BaseElement<Attrs> {
   static override get observedAttributes() {
@@ -32,20 +32,24 @@ export class UIStack extends BaseElement<Attrs> {
   }
 
   protected override update(): void {
-    const uIStack = this.root.querySelector<HTMLDivElement>(".ui-stack")!;
-    uIStack.className = "ui-stack";
+    const uiStack = this.root.querySelector<HTMLDivElement>(".ui-stack")!;
+    uiStack.className = "ui-stack";
 
     const o = (this.attr("orientation") ?? "horizontal").toLowerCase();
-    uIStack.classList.add(o === "horizontal" ? "horizontal" : "vertical");
+    uiStack.classList.add(o === "horizontal" ? "horizontal" : "vertical");
 
-    const gap = this.attr("gap");
-    if (gap) uIStack.style.setProperty("--gap", gap);
-    else uIStack.style.removeProperty("--gap");
+    const gap = Number(this.attr("gap")) ?? 0;
+    if (gap) uiStack.style.setProperty("--_space", `var(--space-${gap})`);
 
     const align = (this.attr("align") ?? "").toLowerCase();
-    if (align) uIStack.classList.add(`align-${align}`);
+    if (align) uiStack.classList.add(`align-${align}`);
 
     const justify = (this.attr("justify") ?? "").toLowerCase();
-    if (justify) uIStack.classList.add(`justify-${justify}`);
+    if (justify) uiStack.classList.add(`justify-${justify}`);
+
+    const margin = Number(this.attr("margin")) ?? 0;
+    const padding = Number(this.attr("padding")) ?? 0;
+    this.style.setProperty("--_margin", `var(--p-${margin})`);
+    this.style.setProperty("--_padding", `var(--p-${padding})`);
   }
 }

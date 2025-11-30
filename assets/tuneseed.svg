@@ -1,0 +1,38 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ts-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4ADE80"></stop>
+      <stop offset="100%" stop-color="#22D3EE"></stop>
+    </linearGradient>
+  </defs>
+
+  <rect width="1024" height="1024" fill="#060F19"></rect>
+
+  <!-- Icon centered -->
+  <g transform="translate(362 160)">
+    <!-- Circle ring -->
+    <circle cx="150" cy="150" r="140" fill="none" stroke="url(#ts-grad)" stroke-width="20"></circle>
+
+    <!-- Seed -->
+    <ellipse cx="150" cy="175" rx="45" ry="70" fill="url(#ts-grad)"></ellipse>
+
+    <!-- Leaf -->
+    <path d="M150 120
+             C 150 95, 175 80, 205 82
+             C 200 105, 180 125, 155 130 Z" fill="#060F19"></path>
+
+    <!-- Stem -->
+    <path d="M150 245 C148 270 146 290 140 310" fill="none" stroke="#FBF6EF" stroke-width="6" stroke-linecap="round"></path>
+
+    <!-- Sound waves -->
+    <path d="M235 150
+             C270 135 295 135 330 150
+             M245 180
+             C275 170 295 170 325 180" fill="none" stroke="#FBF6EF" stroke-width="6" stroke-linecap="round"></path>
+  </g>
+
+  <!-- Text below icon -->
+  <text x="512" y="860" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" font-size="150" fill="#FBF6EF">
+    TuneSeed
+  </text>
+</svg>

@@ -33,7 +33,7 @@ export class AvatarCard extends BaseElement<Attrs> {
     super({
       css,
       template: `
-        <ui-card>
+        <ui-card class="avatar-card">
           <img id="avatar" alt="">
           <div>
             <h1 id="name"></h1>

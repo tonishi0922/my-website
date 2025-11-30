@@ -10,6 +10,7 @@
   height: var(--thickness-1);
   background: var(--line);
   border-radius: var(--radius-inf);
+  width: 100%;
 }
 
 :host([variant="default"]) .divider {

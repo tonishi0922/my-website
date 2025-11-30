@@ -1,10 +1,10 @@
 :host {
-  display: block;
   width: 100%;
   box-sizing: border-box;
 }
 
 .ui-container {
+  gap: var(--_gap);
   max-width: 100%;
   width: min(100%, 980px);
   background: var(--bg-sub);

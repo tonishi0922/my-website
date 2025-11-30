@@ -8,24 +8,55 @@
   </head>
   <body>
     <ui-layout>
-      <ui-container full-height>
-        <ui-stack justify="center">
+      <ui-container full-height gap="6">
+        <ui-stack justify="center" padding="4">
           <avatar-card
             orientation="horizontal"
-            name="Tomoki Onishi"
+            name="tonishi0922"
             description="Frontend Engineer"
-            imageSrc="/assets/avatar.svg"
+            imageSrc="/assets/avatar.png"
           >
           </avatar-card>
         </ui-stack>
-        <ui-stack>
-          <ui-card>
-            <div>test</div>
-          </ui-card>
-          <div>
-            test
-            <ui-divider variant="strong"></ui-divider>
-          </div>
+        <ui-stack orientation="vertical" padding="4">
+          <ui-divider></ui-divider>
+          <ui-title title="works" size="6"></ui-title>
+          <ui-stack>
+            <ui-image
+              src="/assets/vanilla.png"
+              alt="GoalPulse image"
+              caption="Vanilla Components"
+            ></ui-image>
+            <ui-image
+              src="/assets/goalpulse.svg"
+              alt="GoalPulse image"
+              caption="GoalPulse"
+            ></ui-image>
+            <ui-image
+              src="/assets/tuneseed.svg"
+              alt="GoalPulse image"
+              caption="TuneSeed"
+            ></ui-image>
+          </ui-stack>
+        </ui-stack>
+        <ui-stack orientation="vertical" padding="8" gap="0">
+          <ui-divider></ui-divider>
+          <ui-title title="About" size="6"></ui-title>
+          <ui-stack padding="4">
+            <ui-text
+              >フロントエンドを中心に、UI コンポーネント設計や Web
+              メディア開発を担当しています。 <br />特に “情報が整理された UI” や
+              “扱いやすいコンポーネント API”
+              を考えるのが好きで、共通化・再利用・アクセシビリティを意識した設計を得意としています。<br />
+              動画プレイヤー（DRM / HLS.js / Safari 対応 /
+              自動再生・フルスクリーン制御など）や、Vue2→3 移行、API
+              仕様策定、品質管理、ベンダーコントロールなど、裏側の調整も好きなタイプです。</ui-text
+            >
+          </ui-stack>
+        </ui-stack>
+        <ui-stack orientation="vertical" padding="8" gap="0">
+          <ui-divider></ui-divider>
+          <ui-title title="Contact" size="6"></ui-title>
         </ui-stack>
       </ui-container>
     </ui-layout>

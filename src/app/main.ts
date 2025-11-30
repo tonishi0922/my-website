@@ -4,3 +4,6 @@ export * from "../components/UI/UIDivider";
 export * from "../components/UI/UIStack";
 export * from "../components/UI/UILayout";
 export * from "../components/UI/UIContainer";
+export * from "../components/UI/UITitle";
+export * from "../components/UI/UIImage";
+export * from "../components/UI/UIText";

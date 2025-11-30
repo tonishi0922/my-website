@@ -9,7 +9,7 @@ import { BaseElement } from "../../internal/BaseElement";
  * @slot - カード内の要素
  */
 
-type Attrs = "full-height";
+type Attrs = "full-height" | "gap";
 
 export class UIContainer extends BaseElement<Attrs> {
   static override get observedAttributes() {
@@ -25,11 +25,14 @@ export class UIContainer extends BaseElement<Attrs> {
   }
 
   protected override update(): void {
-    const uIContainer = this.root.querySelector(".ui-container")!;
-    console.log(uIContainer);
-    uIContainer.classList.toggle(
+    const uiContainer = this.root.querySelector(".ui-container")!;
+
+    uiContainer.classList.toggle(
       "full-height",
       this.hasAttribute("full-height")
     );
+
+    const gap = this.attr("gap") ?? 0;
+    this.style.setProperty("--_gap", `var(--space-${gap})`);
   }
 }

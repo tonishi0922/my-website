@@ -7,11 +7,12 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "analyze:wc": "wca analyze src/components --format json --outFile ./custom-elements.json",
-    "cem": "cem analyze"
+    "cem": "cem analyze",
+    "generate:tokes": "node ./src/app/generate-tokens.ts"
   },
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "^0.11.0",
+    "@types/node": "^24.10.1",
     "typescript": "~5.9.3",
     "vite": "^7.1.7"
   },

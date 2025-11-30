@@ -1,10 +1,17 @@
 :host {
-  display: contents;
+  display: block;
+  width: 100%;
 }
 
 .ui-stack {
   display: flex;
-  gap: var(--gap, 16px);
+  gap: var(--_space);
+  width: 100%;
+  flex-direction: column;
+  box-sizing: border-box;
+  background-color: var(--panel);
+  margin: var(--_margin, var(--m-0));
+  padding: var(--_padding, var(--p-0));
 }
 
 .ui-stack.vertical {
