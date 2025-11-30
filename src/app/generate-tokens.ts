@@ -6,14 +6,15 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const globalTokensPath = path.resolve(__dirname, "../styles/global-tokens.css");
-const aliasTokensPath = path.resolve(__dirname, "../styles/global-tokens.css");
+const aliasTokensPath = path.resolve(__dirname, "../styles/alias-tokens.css");
 const args = process.argv.slice(2);
 const getArg = (name: string) => {
   const index = args.indexOf(name);
   return index !== -1 ? args[index + 1] : null;
 };
 
-if (getArg("--input")) console.log("Input data is: ", getArg("--input"));
+if (getArg("--input"))
+  console.log("Reading input data is: ", getArg("--input"));
 if (getArg("--output")) console.log("Output data is: ", getArg("--output"));
 
 const input = getArg("--input") ?? globalTokensPath;
@@ -37,8 +38,13 @@ while ((match = tokenRegex.exec(css)) !== null) {
 
 const keys = Object.keys(groups);
 
-const block = (mode: "light" | "dark") =>
-  keys.map((k) => `  --${k}: ${groups[k][mode]};`).join("\n");
+const makeBlock = (indent: number) => (mode: "light" | "dark") =>
+  keys
+    .map((k) => `${" ".repeat(indent)}--${k}: ${groups[k][mode]};`)
+    .join("\n");
+
+const block = makeBlock(2);
+const mediaBlock = makeBlock(4);
 
 const cssOutput = `
 :root[data-theme="light"] {
@@ -55,7 +61,7 @@ ${block("light")}
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-${block("dark")}
+${mediaBlock("dark")}
   }
 }
 `;
