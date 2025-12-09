@@ -24,7 +24,7 @@ console.log("Output:", output);
 
 const css = fs.readFileSync(globalTokensPath, "utf-8");
 
-const tokenRegex = /--([a-z0-9-]+)-(light|dark):/g;
+const tokenRegex = /--([a-z0-9-_]+)-(light|dark):/g;
 
 let groups: Record<string, { light?: string; dark?: string }> = {};
 
@@ -67,4 +67,4 @@ ${mediaBlock("dark")}
 `;
 
 fs.writeFileSync(output, cssOutput);
-console.log("generated theme.css");
+console.log("generated!!");

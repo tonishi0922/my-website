@@ -8,6 +8,11 @@
   --text: var(--text-light);
   --brand: var(--brand-light);
   --line: var(--line-light);
+  --border: var(--border-light);
+  --btn_primary: var(--btn_primary-light);
+  --btn_secondary: var(--btn_secondary-light);
+  --btn_danger: var(--btn_danger-light);
+  --label_required: var(--label_required-light);
 }
 
 :root[data-theme="dark"] {
@@ -19,6 +24,11 @@
   --text: var(--text-dark);
   --brand: var(--brand-dark);
   --line: var(--line-dark);
+  --border: var(--border-dark);
+  --btn_primary: var(--btn_primary-dark);
+  --btn_secondary: var(--btn_secondary-dark);
+  --btn_danger: var(--btn_danger-dark);
+  --label_required: var(--label_required-dark);
 }
 
 :root {
@@ -30,6 +40,11 @@
   --text: var(--text-light);
   --brand: var(--brand-light);
   --line: var(--line-light);
+  --border: var(--border-light);
+  --btn_primary: var(--btn_primary-light);
+  --btn_secondary: var(--btn_secondary-light);
+  --btn_danger: var(--btn_danger-light);
+  --label_required: var(--label_required-light);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -42,5 +57,10 @@
     --text: var(--text-dark);
     --brand: var(--brand-dark);
     --line: var(--line-dark);
+    --border: var(--border-dark);
+    --btn_primary: var(--btn_primary-dark);
+    --btn_secondary: var(--btn_secondary-dark);
+    --btn_danger: var(--btn_danger-dark);
+    --label_required: var(--label_required-dark);
   }
 }

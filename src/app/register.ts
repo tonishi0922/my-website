@@ -11,6 +11,8 @@ import { UIContainer } from "../components/UI/UIContainer";
 import { UITitle } from "../components/UI/UITitle";
 import { UIImage } from "../components/UI/UIImage";
 import { UIText } from "../components/UI/UIText";
+import { UIButton } from "../components/UI/UIButton";
+import { UIInput } from "../components/UI/UIInput";
 
 const define = (name: string, ctor: CustomElementConstructor) => {
   customElements.get(name) || customElements.define(name, ctor);
@@ -25,3 +27,5 @@ define("ui-container", UIContainer);
 define("ui-title", UITitle);
 define("ui-image", UIImage);
 define("ui-text", UIText);
+define("ui-button", UIButton);
+define("ui-input", UIInput);

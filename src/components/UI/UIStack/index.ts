@@ -15,11 +15,18 @@ import { BaseElement } from "../../internal/BaseElement";
  * @slot - カード内の要素
  */
 
-type Attrs = "orientation" | "gap" | "align" | "justify" | "padding" | "margin";
+type Attrs =
+  | "orientation"
+  | "gap"
+  | "align"
+  | "wrap"
+  | "justify"
+  | "padding"
+  | "margin";
 
 export class UIStack extends BaseElement<Attrs> {
   static override get observedAttributes() {
-    return ["orientation", "gap", "align", "justify"];
+    return ["orientation", "gap", "align", "justify", "wrap"];
   }
 
   constructor() {
@@ -43,6 +50,9 @@ export class UIStack extends BaseElement<Attrs> {
 
     const align = (this.attr("align") ?? "").toLowerCase();
     if (align) uiStack.classList.add(`align-${align}`);
+
+    const wrap = (this.attr("wrap") ?? "").toLowerCase();
+    if (wrap) uiStack.classList.add(`${wrap}`);
 
     const justify = (this.attr("justify") ?? "").toLowerCase();
     if (justify) uiStack.classList.add(`justify-${justify}`);

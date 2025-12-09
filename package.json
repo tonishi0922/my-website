@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "cem": "cem analyze",
-    "generate:tokes": "node ./src/app/generate-tokens.ts"
+    "generate:tokens": "node ./src/app/generate-tokens.ts"
   },
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "^0.11.0",

@@ -48,3 +48,12 @@
 .ui-stack.justify-evenly {
   justify-content: space-evenly;
 }
+.ui-stack.wrap {
+  flex-wrap: wrap;
+}
+.ui-stack.nowrap {
+  flex-wrap: nowrap;
+}
+.ui-stack.wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
