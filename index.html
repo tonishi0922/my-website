@@ -47,33 +47,37 @@
         <ui-stack orientation="vertical" padding="8" gap="4">
           <ui-divider></ui-divider>
           <ui-title title="Contact" size="6"></ui-title>
-          <ui-input
-            label-text="お名前"
-            type="text"
-            placeholder="山田太郎"
-            id="name"
-            required="true"
-          ></ui-input>
-          <ui-input
-            label-text="会社名"
-            type="text"
-            placeholder="〇〇株式会社"
-            id="company"
-          ></ui-input>
-          <ui-input
-            label-text="メールアドレス"
-            type="text"
-            placeholder="xxxx@mail.com"
-            id="mail"
-            required="true"
-          ></ui-input>
-          <ui-input
-            label-text="問い合わせ内容"
-            type="textarea"
-            id="content"
-            required="true"
-          ></ui-input>
-          <ui-button variant="secondary" justify="center">送信</ui-button>
+          <form action="https://formspree.io/f/xgvglbld" method="POST">
+            <ui-input
+              label-text="お名前"
+              type="text"
+              placeholder="山田太郎"
+              id="name"
+              required="true"
+            ></ui-input>
+            <ui-input
+              label-text="会社名"
+              type="text"
+              placeholder="〇〇株式会社"
+              id="company"
+            ></ui-input>
+            <ui-input
+              label-text="メールアドレス"
+              type="text"
+              placeholder="xxxx@mail.com"
+              id="mail"
+              required="true"
+            ></ui-input>
+            <ui-input
+              label-text="問い合わせ内容"
+              type="textarea"
+              id="content"
+              required="true"
+            ></ui-input>
+            <ui-button variant="secondary" justify="center" type="submit"
+              >送信</ui-button
+            >
+          </form>
         </ui-stack>
       </ui-container>
     </ui-layout>

@@ -10,6 +10,7 @@
   border: 0.5px solid var(--border);
   padding: var(--p-2) var(--p-4);
   border-radius: var(--radius-2);
+  cursor: pointer;
 }
 
 .ui-button-danger {

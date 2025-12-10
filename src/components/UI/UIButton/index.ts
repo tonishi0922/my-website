@@ -1,14 +1,15 @@
 import css from "./ui-button.css?raw";
 import { BaseElement } from "../../internal/BaseElement";
 
-type Attrs = "size" | "variant" | "justify";
+type Attrs = "size" | "variant" | "justify" | "type";
 
 type Size = "default" | "small" | "large";
 type Variant = "primary" | "secondary" | "danger";
+type ButtonType = "button" | "reset" | "submit";
 
 export class UIButton extends BaseElement<Attrs> {
   static override get observedAttributes() {
-    return ["size", "variant", "justify"];
+    return ["size", "variant", "justify", "type"];
   }
 
   constructor() {
@@ -45,6 +46,13 @@ export class UIButton extends BaseElement<Attrs> {
       ? this.attr("variant")
       : "primary";
     uiButton.classList.add(`ui-button-${size}`, `ui-button-${variant}`);
+
+    const allowedTypes: ButtonType[] = ["button", "reset", "submit"];
+    uiButton.type =
+      this.attr("type") &&
+      allowedTypes.includes(this.attr("type") as ButtonType)
+        ? (this.attr("type") as ButtonType)
+        : "button";
 
     const uiButtonWrapper = this.root.querySelector(".ui-button-wrapper")!;
     const justify = (this.attr("justify") ?? "").toLowerCase();
