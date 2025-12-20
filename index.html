@@ -47,7 +47,11 @@
         <ui-stack orientation="vertical" padding="8" gap="4">
           <ui-divider></ui-divider>
           <ui-title title="Contact" size="6"></ui-title>
-          <form action="https://formspree.io/f/xgvglbld" method="POST">
+          <form
+            action="https://formspree.io/f/xgvglbld"
+            method="POST"
+            id="contact-form"
+          >
             <ui-input
               label-text="お名前"
               type="text"
@@ -74,7 +78,14 @@
               id="content"
               required="true"
             ></ui-input>
-            <ui-button variant="secondary" justify="center" type="submit"
+            <div>
+              <button type="submit" preventdefault>送信</button>
+            </div>
+            <ui-button
+              id="send-button"
+              variant="secondary"
+              justify="center"
+              type="submit"
               >送信</ui-button
             >
           </form>
@@ -90,6 +101,33 @@
           { label: "GitHub", href: "https://github.com/tonishi0922" },
           { label: "X", href: "https://x.com/tmk705880145" },
         ];
+      });
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("contact-form");
+        console.log(form);
+
+        form.addEventListener("submit", async (e) => {
+          const data = new FormData(form);
+          console.log("form data is: ", data);
+          const btn = document.getElementById("send-button");
+          btn.textContent = "送信中...";
+
+          const res = await fetch(form.action, {
+            method: "POST",
+            body,
+            data,
+            headers: { Accept: "application/json" },
+          });
+
+          if (res.ok) {
+            alert("送信しました！");
+            form.reset();
+            btn.textContent = "送信";
+          } else {
+            alert("送信に失敗しました");
+          }
+        });
       });
     </script>
   </body>
