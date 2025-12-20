@@ -31,17 +31,20 @@ export class UIInput extends BaseElement<Attrs> {
       template: `
         <div class="ui-input-wrapper">
           <label class="ui-input-label"></label>
-          <slot name="input"></slot>
           <input class="ui-input"/>
+          <textarea class="ui-textarea"></textarea>
         </div>
       `,
     });
+    this.attachInternals();
   }
 
   protected override update(): void {
     const uiInputLabel =
       this.root.querySelector<HTMLLabelElement>(".ui-input-label")!;
     const uiInput = this.root.querySelector<HTMLInputElement>(".ui-input")!;
+    const uiTextArea =
+      this.root.querySelector<HTMLTextAreaElement>(".ui-textarea")!;
 
     // --- Label ---
     const labelText = this.attr("label-text");
@@ -58,13 +61,15 @@ export class UIInput extends BaseElement<Attrs> {
 
     const type = this.attr("type") ?? "text";
     if (type === "textarea") {
-      const textarea = document.createElement("textarea");
-      textarea.id = this.inputId;
-      textarea.name = this.inputId;
-      textarea.placeholder = this.attr("placeholder") ?? "";
-      textarea.value = this.attr("value") ?? "";
-      uiInput.replaceWith(textarea);
+      uiInput.hidden = true;
+      uiTextArea.hidden = false;
+      uiTextArea.id = this.inputId;
+      uiTextArea.name = this.inputId;
+      uiTextArea.placeholder = this.attr("placeholder") ?? "";
+      uiTextArea.value = this.attr("value") ?? "";
     } else {
+      uiInput.hidden = false;
+      uiTextArea.hidden = true;
       uiInput.id = this.inputId;
       uiInput.name = this.inputId;
       uiInput.type = this.attr("type") ?? "text";
