@@ -56,11 +56,10 @@ export class UIInput extends BaseInternalElement<
   connectedCallback(): void {
     super.connectedCallback();
     if (!this.bound) {
-      const onInput = () => this.syncFormState();
-      this.inputEl.addEventListener("input", onInput);
-      this.inputEl.addEventListener("change", onInput);
-      this.textareaEl.addEventListener("input", onInput);
-      this.textareaEl.addEventListener("change", onInput);
+      this.inputEl.addEventListener("input", () => this.handleInput());
+      this.inputEl.addEventListener("change", () => this.handleChange());
+      this.textareaEl.addEventListener("input", () => this.handleInput());
+      this.textareaEl.addEventListener("change", () => this.handleChange());
       this.bound = true;
     }
     this.syncFormState();
@@ -108,5 +107,30 @@ export class UIInput extends BaseInternalElement<
       tag.classList.add("required");
       this.labelEl.appendChild(tag);
     }
+  }
+
+  private handleInput() {
+    this.syncValueAttr();
+    this.syncFormState();
+    this.dispatchEvent(new Event("input", { bubbles: true, composed: true }));
+  }
+
+  private handleChange() {
+    this.syncValueAttr();
+    this.syncFormState();
+    this.dispatchEvent(new Event("change", { bubbles: true, composed: true }));
+  }
+
+  private syncValueAttr() {
+    const value = this.control?.value ?? "";
+    if (this.getAttribute("value") !== value) {
+      this.setAttribute("value", value);
+    }
+  }
+
+  formResetCallback() {
+    this.control.value = "";
+    this.removeAttribute("value");
+    this.syncFormState();
   }
 }
