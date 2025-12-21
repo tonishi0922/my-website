@@ -1,5 +1,5 @@
 import css from "./ui-input.css?raw";
-import { BaseElement } from "../../internal/BaseElement";
+import { BaseInternalElement } from "../../internal/BaseInternalElement";
 
 type Attrs =
   | "label-text"
@@ -8,9 +8,13 @@ type Attrs =
   | "id"
   | "type"
   | "placeholder"
-  | "required";
+  | "required"
+  | "disabled";
 
-export class UIInput extends BaseElement<Attrs> {
+export class UIInput extends BaseInternalElement<
+  HTMLInputElement | HTMLTextAreaElement,
+  Attrs
+> {
   static override get observedAttributes() {
     return [
       "label-text",
@@ -20,10 +24,15 @@ export class UIInput extends BaseElement<Attrs> {
       "id",
       "type",
       "required",
+      "disabled",
     ];
   }
 
   private inputId = `ui-input-${crypto.randomUUID()}`;
+  private labelEl: HTMLLabelElement;
+  private inputEl: HTMLInputElement;
+  private textareaEl: HTMLTextAreaElement;
+  private bound = false;
 
   constructor() {
     super({
@@ -36,45 +45,68 @@ export class UIInput extends BaseElement<Attrs> {
         </div>
       `,
     });
-    this.attachInternals();
+
+    this.labelEl = this.root.querySelector<HTMLLabelElement>(".ui-input-label")!;
+    this.inputEl = this.root.querySelector<HTMLInputElement>(".ui-input")!;
+    this.textareaEl =
+      this.root.querySelector<HTMLTextAreaElement>(".ui-textarea")!;
+    this.control = this.inputEl;
+  }
+
+  connectedCallback(): void {
+    super.connectedCallback();
+    if (!this.bound) {
+      const onInput = () => this.syncFormState();
+      this.inputEl.addEventListener("input", onInput);
+      this.inputEl.addEventListener("change", onInput);
+      this.textareaEl.addEventListener("input", onInput);
+      this.textareaEl.addEventListener("change", onInput);
+      this.bound = true;
+    }
+    this.syncFormState();
   }
 
   protected override update(): void {
-    const uiInputLabel =
-      this.root.querySelector<HTMLLabelElement>(".ui-input-label")!;
-    const uiInput = this.root.querySelector<HTMLInputElement>(".ui-input")!;
-    const uiTextArea =
-      this.root.querySelector<HTMLTextAreaElement>(".ui-textarea")!;
+    const type = (this.attr("type") ?? "text").toLowerCase();
+    const isTextarea = type === "textarea";
+    this.inputEl.hidden = isTextarea;
+    this.textareaEl.hidden = !isTextarea;
+    this.control = isTextarea ? this.textareaEl : this.inputEl;
 
-    // --- Label ---
-    const labelText = this.attr("label-text");
-    uiInputLabel.textContent = labelText;
-    uiInputLabel.htmlFor = this.inputId;
+    const controlId = this.attr("label-for") ?? this.attr("id") ?? this.inputId;
+    this.labelEl.textContent = this.attr("label-text") ?? "";
+    this.labelEl.htmlFor = controlId;
+    this.updateRequiredTag();
 
-    uiInputLabel.querySelector(".required")?.remove();
+    this.control.id = controlId;
+    this.control.setAttribute("name", controlId);
+    this.control.placeholder = this.attr("placeholder") ?? "";
+
+    if (this.control instanceof HTMLInputElement) {
+      this.control.type = isTextarea ? "text" : type || "text";
+    }
+
+    const valueAttr = this.attr("value");
+    if (valueAttr !== null && this.control.value !== valueAttr) {
+      this.control.value = valueAttr;
+    }
+
+    this.syncDisabled();
+    this.syncFormState();
+  }
+
+  private syncFormState() {
+    this.setValue(this.control?.value ?? "");
+    this.syncRequired();
+  }
+
+  private updateRequiredTag() {
+    this.labelEl.querySelector(".required")?.remove();
     if (this.hasAttribute("required")) {
       const tag = document.createElement("span");
       tag.textContent = "必須";
       tag.classList.add("required");
-      uiInputLabel.appendChild(tag);
-    }
-
-    const type = this.attr("type") ?? "text";
-    if (type === "textarea") {
-      uiInput.hidden = true;
-      uiTextArea.hidden = false;
-      uiTextArea.id = this.inputId;
-      uiTextArea.name = this.inputId;
-      uiTextArea.placeholder = this.attr("placeholder") ?? "";
-      uiTextArea.value = this.attr("value") ?? "";
-    } else {
-      uiInput.hidden = false;
-      uiTextArea.hidden = true;
-      uiInput.id = this.inputId;
-      uiInput.name = this.inputId;
-      uiInput.type = this.attr("type") ?? "text";
-      uiInput.placeholder = this.attr("placeholder") ?? "";
-      uiInput.value = this.attr("value") ?? "";
+      this.labelEl.appendChild(tag);
     }
   }
 }
