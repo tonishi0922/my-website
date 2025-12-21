@@ -14,7 +14,7 @@ export abstract class BaseInternalElement<
     this.internals = this.attachInternals();
   }
 
-  protected setValue(value: string) {
+  protected setValue(value: string | File | FormData | null) {
     this.internals.setFormValue(value);
   }
 
