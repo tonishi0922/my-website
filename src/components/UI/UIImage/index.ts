@@ -1,6 +1,27 @@
 import css from "./ui-image.css?raw";
 import { BaseElement } from "../../internal/BaseElement";
 
+/**
+ * @element ui-image
+ *
+ * @description
+ * 画像とキャプションを表示するコンポーネント。
+ * isBackground を指定すると背景画像として表示する。
+ *
+ * @attr {string} src
+ * 画像のソース
+ *
+ * @attr {string} alt
+ * 画像の代替テキスト
+ *
+ * @attr {string} caption
+ * 画像のキャプション
+ *
+ * @attr {boolean} isBackground
+ * 背景画像化を行うか（指定すると true）
+ *
+ */
+
 type Attrs = "src" | "alt" | "caption" | "isBackground";
 
 export class UIImage extends BaseElement<Attrs> {
