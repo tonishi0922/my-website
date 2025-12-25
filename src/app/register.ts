@@ -3,6 +3,7 @@ import "../styles/alias-tokens.css"; // 上の値を --bg / --text ... にマッ
 import "../style.css";
 
 import { AvatarCard } from "../components/common/AvatarCard";
+import { VideoPlayer } from "../components/common/VideoPlayer";
 import { UICard } from "../components/UI/UICard";
 import { UIDivider } from "../components/UI/UIDivider";
 import { UIStack } from "../components/UI/UIStack";
@@ -29,3 +30,4 @@ define("ui-image", UIImage);
 define("ui-text", UIText);
 define("ui-button", UIButton);
 define("ui-input", UIInput);
+define("video-player", VideoPlayer);
