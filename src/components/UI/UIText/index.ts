@@ -1,6 +1,23 @@
 import css from "./ui-text.css?raw";
 import { BaseElement } from "../../internal/BaseElement";
 
+/**
+ * @element ui-text
+ *
+ * @description
+ * テキスト表示用のシンプルなコンポーネント。
+ * size と weight で文字の見た目を調整できる。
+ *
+ * @attr {number} size
+ * フォントサイズ（--fs-{n} を参照）
+ *
+ * @attr {string} weight
+ * フォントウェイト
+ *
+ * @slot
+ * テキスト内容
+ */
+
 type Attrs = "size" | "weight";
 
 export class UIText extends BaseElement<Attrs> {
