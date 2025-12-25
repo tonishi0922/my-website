@@ -18,6 +18,12 @@
           >
           </avatar-card>
         </ui-stack>
+        <ui-button ty></ui-button>
+        <ui-stack>
+          <video-player
+            src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+          ></video-player>
+        </ui-stack>
         <ui-stack orientation="vertical" padding="4">
           <ui-divider></ui-divider>
           <ui-title title="works" size="6"></ui-title>
@@ -57,6 +63,7 @@
               type="text"
               placeholder="山田太郎"
               id="name"
+              name="name"
               required="true"
             ></ui-input>
             <ui-input
@@ -64,13 +71,14 @@
               type="text"
               placeholder="〇〇株式会社"
               id="company"
+              name="company"
             ></ui-input>
             <ui-input
               label-text="メールアドレス"
               type="text"
               placeholder="xxxx@mail.com"
-              id="mail"
-              required="true"
+              id="email"
+              name="email"
             ></ui-input>
             <ui-input
               label-text="問い合わせ内容"
@@ -78,9 +86,6 @@
               id="content"
               required="true"
             ></ui-input>
-            <div>
-              <button type="submit" preventdefault>送信</button>
-            </div>
             <ui-button
               id="send-button"
               variant="secondary"
@@ -105,27 +110,63 @@
 
       window.addEventListener("DOMContentLoaded", () => {
         const form = document.getElementById("contact-form");
-        console.log(form);
+        const storageKey = "contact-form-data";
+        const getInputs = () => Array.from(form.querySelectorAll("ui-input"));
+        const loadSaved = () => {
+          try {
+            const saved = JSON.parse(localStorage.getItem(storageKey) ?? "{}");
+            getInputs().forEach((el) => {
+              const key = el.getAttribute("id") ?? el.getAttribute("label-for");
+              if (!key) return;
+              const value = saved[key];
+              if (typeof value === "string") {
+                el.setAttribute("value", value);
+              }
+            });
+          } catch {
+            localStorage.removeItem(storageKey);
+          }
+        };
+        const save = () => {
+          const data = {};
+          getInputs().forEach((el) => {
+            const key = el.getAttribute("id") ?? el.getAttribute("label-for");
+            if (!key) return;
+            data[key] = el.getAttribute("value") ?? "";
+          });
+          localStorage.setItem(storageKey, JSON.stringify(data));
+        };
+
+        loadSaved();
+        form.addEventListener("input", save);
+        form.addEventListener("change", save);
 
         form.addEventListener("submit", async (e) => {
+          e.preventDefault();
           const data = new FormData(form);
-          console.log("form data is: ", data);
+
           const btn = document.getElementById("send-button");
           btn.textContent = "送信中...";
 
+          console.log({
+            method: "POST",
+            body: data,
+            headers: { Accept: "application/json" },
+          });
           const res = await fetch(form.action, {
             method: "POST",
-            body,
-            data,
+            body: data,
             headers: { Accept: "application/json" },
           });
 
           if (res.ok) {
             alert("送信しました！");
             form.reset();
+            localStorage.removeItem(storageKey);
             btn.textContent = "送信";
           } else {
             alert("送信に失敗しました");
+            btn.textContent = "送信";
           }
         });
       });
