@@ -4,9 +4,27 @@ import { BaseElement } from "../../internal/BaseElement";
 /**
  * @element ui-divider
  *
- * @attr {"default" | "strong"} variant ボーダーの太さ
+ * @description
+ * セクション間を区切る水平ディバイダー。
+ * variant と label で見た目を調整できる。
  *
- * @slot - カード内の要素
+ * @attr {"default"|"strong"} variant
+ * ボーダーの太さ
+ *
+ * @attr {"horizontal"|"vertical"} orientation
+ * ディバイダーの方向
+ *
+ * @attr {boolean} inset
+ * 左右にインセットを付けるか（指定すると true）
+ *
+ * @attr {string} label
+ * 区切り線に表示するラベル
+ *
+ * @csspart line
+ * 区切り線本体
+ *
+ * @csspart label
+ * ラベル要素
  */
 
 type Attrs = "variant" | "orientation" | "inset" | "label";
