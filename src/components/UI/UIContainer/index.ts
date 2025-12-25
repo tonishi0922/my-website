@@ -4,9 +4,17 @@ import { BaseElement } from "../../internal/BaseElement";
 /**
  * @element ui-container
  *
- * @attr {boolean} full-height 要素を画面高さいっぱいに表示するか
+ * @description
+ * コンテンツの最大幅と余白を制御するコンテナコンポーネント。
  *
- * @slot - カード内の要素
+ * @attr {boolean} full-height
+ * 要素を画面高さいっぱいに表示するか（指定すると true）
+ *
+ * @attr {number} gap
+ * 子要素間の間隔（--space-{n} を参照）
+ *
+ * @slot
+ * コンテナ内の要素
  */
 
 type Attrs = "full-height" | "gap";
