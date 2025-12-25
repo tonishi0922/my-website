@@ -4,15 +4,33 @@ import { BaseElement } from "../../internal/BaseElement";
 /**
  * @element ui-stack
  *
- * @attr {"vertical" | "horizontal"} orientation stack内の子要素を垂直方向に並べるか水平方向に並べるか
+ * @description
+ * 子要素を縦横に並べるスタックコンポーネント。
+ * gap/align/justify/wrap でレイアウトを調整できる。
  *
- * @attr {number} stack内の子要素間のgap
+ * @attr {"vertical"|"horizontal"} orientation
+ * stack 内の子要素を垂直方向に並べるか水平方向に並べるか
  *
- * @attr {"start" | "center" | "end"} align satck内の要素の上下配置
+ * @attr {number} gap
+ * stack 内の子要素間の gap
  *
- * @attr {"start" | "center" | "end" | "between" | "around" | "evenly"} justify satck内の横の配置
+ * @attr {"start"|"center"|"end"} align
+ * stack 内の要素の上下配置
  *
- * @slot - カード内の要素
+ * @attr {"start"|"center"|"end"|"between"|"around"|"evenly"} justify
+ * stack 内の横の配置
+ *
+ * @attr {"wrap"|"nowrap"|"wrap-reverse"} wrap
+ * 子要素の折り返し
+ *
+ * @attr {number} padding
+ * 内側余白（--p-{n} を参照）
+ *
+ * @attr {number} margin
+ * 外側余白（--p-{n} を参照）
+ *
+ * @slot
+ * stack 内の要素
  */
 
 type Attrs =
