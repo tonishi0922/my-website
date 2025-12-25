@@ -1,6 +1,41 @@
 import css from "./ui-input.css?raw";
 import { BaseInternalElement } from "../../internal/BaseInternalElement";
 
+/**
+ * @element ui-input
+ *
+ * @description
+ * ラベル付きの入力コンポーネント。
+ * type を "textarea" にすると複数行入力になる。
+ *
+ * @attr {string} label-text
+ * ラベルに表示するテキスト
+ *
+ * @attr {string} label-for
+ * ラベルの for 属性に使う ID
+ *
+ * @attr {string} value
+ * 入力値
+ *
+ * @attr {string} id
+ * 入力要素の ID
+ *
+ * @attr {string} name
+ * 入力要素の name
+ *
+ * @attr {string} type
+ * 入力タイプ（"textarea" のときは textarea を表示）
+ *
+ * @attr {string} placeholder
+ * プレースホルダー
+ *
+ * @attr {boolean} required
+ * 必須入力かどうか（指定すると true）
+ *
+ * @attr {boolean} disabled
+ * 無効化（指定すると true）
+ */
+
 type Attrs =
   | "label-text"
   | "label-for"
