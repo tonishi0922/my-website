@@ -4,7 +4,11 @@ import { BaseElement } from "../../internal/BaseElement";
 /**
  * @element ui-layout
  *
- * @slot - レイアウト内の要素
+ * @description
+ * ページ全体のレイアウトを包むコンテナ。
+ *
+ * @slot
+ * レイアウト内の要素
  */
 
 export class UILayout extends BaseElement {
