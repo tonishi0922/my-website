@@ -6,6 +6,7 @@ type Attrs =
   | "label-for"
   | "value"
   | "id"
+  | "name"
   | "type"
   | "placeholder"
   | "required"
@@ -22,6 +23,7 @@ export class UIInput extends BaseInternalElement<
       "value",
       "placeholder",
       "id",
+      "name",
       "type",
       "required",
       "disabled",
@@ -46,7 +48,8 @@ export class UIInput extends BaseInternalElement<
       `,
     });
 
-    this.labelEl = this.root.querySelector<HTMLLabelElement>(".ui-input-label")!;
+    this.labelEl =
+      this.root.querySelector<HTMLLabelElement>(".ui-input-label")!;
     this.inputEl = this.root.querySelector<HTMLInputElement>(".ui-input")!;
     this.textareaEl =
       this.root.querySelector<HTMLTextAreaElement>(".ui-textarea")!;
@@ -78,7 +81,7 @@ export class UIInput extends BaseInternalElement<
     this.updateRequiredTag();
 
     this.control.id = controlId;
-    this.control.setAttribute("name", controlId);
+    this.control.name = this.attr("name") ?? controlId;
     this.control.placeholder = this.attr("placeholder") ?? "";
 
     if (this.control instanceof HTMLInputElement) {
@@ -95,7 +98,9 @@ export class UIInput extends BaseInternalElement<
   }
 
   private syncFormState() {
-    this.setValue(this.control?.value ?? "");
+    const fd = new FormData();
+    fd.append(this.control.name, this.control?.value);
+    this.setValue(fd);
     this.syncRequired();
   }
 
