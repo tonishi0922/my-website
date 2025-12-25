@@ -4,9 +4,15 @@ import { BaseElement } from "../../internal/BaseElement";
 /**
  * @element ui-card
  *
- * @attr {"vertical" | "horizontal"} orientation カードの要素を縦並びにするか横並びにするか
+ * @description
+ * コンテンツをまとめるカードコンポーネント。
+ * orientation 属性でレイアウト方向を切り替えられる。
  *
- * @slot - カード内の要素
+ * @attr {"vertical"|"horizontal"} orientation
+ * カード内の要素を縦並びにするか横並びにするか
+ *
+ * @slot
+ * カード内の要素
  */
 
 type Attrs = "orientation";
