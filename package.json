@@ -7,15 +7,16 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "cem": "cem analyze",
+    "cem": "cem analyze --config ./cem.config.mjs --outdir ./.vscode ",
     "generate:tokens": "node ./src/app/generate-tokens.ts"
   },
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "^0.11.0",
     "@types/node": "^24.10.1",
+    "custom-elements-manifest": "^2.1.0",
     "typescript": "~5.9.3",
     "vite": "^7.1.7"
   },
   "types": "module",
-  "customElements": "custom-elements.json"
+  "customElements": ".vscode/custom-elements.json"
 }
