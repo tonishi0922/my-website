@@ -1,6 +1,29 @@
 import css from "./ui-title.css?raw";
 import { BaseElement } from "../../internal/BaseElement";
 
+/**
+ * @element ui-title
+ *
+ * @description
+ * 見出し用のコンポーネント。
+ * heading-level で h1〜h6 を切り替えられる。
+ *
+ * @attr {1|2|3|4|5|6} heading-level
+ * 見出しレベル（1〜6）
+ *
+ * @attr {number} size
+ * フォントサイズ（--fs-{n} を参照）
+ *
+ * @attr {string} weight
+ * フォントウェイト
+ *
+ * @attr {string} title
+ * テキスト内容（指定すると slot の代わりに使用）
+ *
+ * @slot
+ * 見出しの内容
+ */
+
 type Attrs = "heading-level" | "size" | "weight" | "title";
 
 export class UITitle extends BaseElement<Attrs> {
