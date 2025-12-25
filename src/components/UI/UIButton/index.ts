@@ -7,6 +7,35 @@ type Size = "default" | "small" | "large";
 type Variant = "primary" | "secondary" | "danger";
 type ButtonType = "button" | "reset" | "submit";
 
+/**
+ * @element ui-button
+ *
+ * @description
+ * 汎用ボタンコンポーネント。
+ * サイズ・見た目・type を属性で指定でき、フォーム送信にも対応する。
+ *
+ * @size {"default"|"small"|"large"} size
+ * ボタンのサイズ
+ *
+ * @attr {"primary"|"secondary"|"danger"} variant
+ * ボタンの表示スタイル
+ *
+ * @attr {"button"|"reset"|"submit"} type
+ * 内部の <button> 要素に渡される type 属性
+ *
+ * @attr {"start"|"center"|"end"} justify
+ * ボタンの配置
+ *
+ * @attr {boolean} disabled
+ * 無効化（指定すると true）
+ *
+ * @slot
+ * ボタン内のコンテンツ（テキストやアイコン）
+ *
+ * @csspart button
+ * 内部の <button> 要素
+ */
+
 export class UIButton extends BaseInternalElement<HTMLButtonElement, Attrs> {
   static override get observedAttributes() {
     return ["size", "variant", "justify", "type", "disabled"];
@@ -71,6 +100,9 @@ export class UIButton extends BaseInternalElement<HTMLButtonElement, Attrs> {
     this.buttonEl.disabled = this.hasAttribute("disabled");
   }
 
+  /**
+   * Trigger native form submit/reset when the inner button is clicked.
+   */
   private handleFormAction() {
     const form = this.internals.form;
     if (!form) return;
